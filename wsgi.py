@@ -15,3 +15,11 @@ def create_prediction():
     data = request.data or '{}'
     body = json.loads(data)
     return jsonify(predict(body))
+
+
+@application.route('/getprediction', methods=['GET'])
+def create_getprediction():
+    dataarg = request.args.get('data') or '{}'
+    data = '{ "data" : "' + dataarg + '"}'
+    body = json.loads(data)
+    return jsonify(predict(body))
